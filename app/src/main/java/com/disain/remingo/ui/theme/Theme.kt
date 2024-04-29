@@ -1,4 +1,4 @@
-package com.example.compose
+package com.disain.remingo.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -80,7 +80,7 @@ fun RemingoTheme(
   val colors = if (!useDarkTheme) {
       LightColors
   } else {
-      DarkColors
+      LightColors
   }
 
   MaterialTheme(

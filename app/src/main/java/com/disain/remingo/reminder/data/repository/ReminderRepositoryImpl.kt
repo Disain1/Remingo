@@ -18,7 +18,7 @@ class ReminderRepositoryImpl @Inject constructor(
         reminderDao.addReminder(reminder)
     }
 
-    override fun deleteReminder(reminder: Reminder) {
+    override suspend fun deleteReminder(reminder: Reminder) {
         reminderDao.deleteReminder(reminder)
     }
 }

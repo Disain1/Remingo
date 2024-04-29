@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -12,9 +13,12 @@ interface ReminderDao {
     @Query("SELECT * FROM reminder")
     fun getAllReminders(): Flow<List<Reminder>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addReminder(reminder: Reminder)
 
+//    @Update
+//    suspend fun disableReminder(reminder: Reminder)
+
     @Delete
-    fun deleteReminder(reminder: Reminder)
+    suspend fun deleteReminder(reminder: Reminder)
 }

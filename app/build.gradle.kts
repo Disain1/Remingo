@@ -59,6 +59,8 @@ dependencies {
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation(libs.androidx.room.ktx)
 
+    implementation(libs.androidx.material.icons.extended)
+
     // Dagger hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)

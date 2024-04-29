@@ -2,11 +2,12 @@ package com.disain.remingo.di
 
 import android.app.Application
 import androidx.room.Room
-import com.disain.remingo.App
+import com.disain.remingo.notifications.ReminderNotificationService
 import com.disain.remingo.data.AppDatabase
 import com.disain.remingo.reminder.data.repository.ReminderRepositoryImpl
 import com.disain.remingo.reminder.domain.repository.ReminderRepository
 import com.disain.remingo.reminder.domain.use_cases.reminder.AddReminderUseCase
+import com.disain.remingo.reminder.domain.use_cases.reminder.DeleteReminderUseCase
 import com.disain.remingo.reminder.domain.use_cases.reminder.GetRemindersUseCase
 import com.disain.remingo.reminder.domain.use_cases.reminder.ReminderUseCases
 import dagger.Module
@@ -25,7 +26,8 @@ object AppModule {
             context,
             AppDatabase::class.java,
             AppDatabase.DATABASE_NAME
-        ).build()
+        )
+            .build()
     }
 
     @Singleton
@@ -36,10 +38,17 @@ object AppModule {
 
     @Singleton
     @Provides
+    fun providesNotificationService(context: Application): ReminderNotificationService {
+        return ReminderNotificationService(context)
+    }
+
+    @Singleton
+    @Provides
     fun providesReminderUseCases(reminderRepository: ReminderRepository): ReminderUseCases {
         return ReminderUseCases(
             addReminderUseCase = AddReminderUseCase(reminderRepository),
-            getRemindersUseCase = GetRemindersUseCase(reminderRepository)
+            getRemindersUseCase = GetRemindersUseCase(reminderRepository),
+            deleteReminderUseCase = DeleteReminderUseCase(reminderRepository)
         )
     }
 }

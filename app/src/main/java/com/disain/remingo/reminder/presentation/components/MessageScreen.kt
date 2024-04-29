@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,17 +21,23 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.disain.remingo.R
-import com.example.compose.RemingoTheme
+import com.disain.remingo.ui.theme.RemingoTheme
 
 @Composable
 fun EmptyRemindersMessage(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onAddButtonClick: () -> Unit
 ) {
     MessageScreen(
         modifier = modifier,
         image = R.drawable.compass,
         title = stringResource(id = R.string.empty_reminders_message_title),
-        description = stringResource(id = R.string.empty_reminders_message_description)
+        description = stringResource(id = R.string.empty_reminders_message_description),
+        actions = {
+            Button(onClick = onAddButtonClick) {
+                Text(text = stringResource(id = R.string.add_button_text))
+            }
+        }
     )
 }
 

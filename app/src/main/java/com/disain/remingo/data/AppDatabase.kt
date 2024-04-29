@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.disain.remingo.reminder.data.local.Reminder
 import com.disain.remingo.reminder.data.local.ReminderDao
 
-@Database(entities = [Reminder::class], version = 1)
+@Database(entities = [Reminder::class], version = 2)
 abstract class AppDatabase: RoomDatabase() {
     abstract val reminderDao: ReminderDao
 

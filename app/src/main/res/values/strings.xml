@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">Remingo</string>
 
-    <string name="empty_reminders_message_title">Ничего не забыто</string>
+    <string name="cd_add_reminder">Добавить напоминание</string>
+    <string name="add_button_text">Добавить</string>
+
+    <string name="reminder_title_hint">Напоминание</string>
+    <string name="reminder_description_hint">Описание (не обязательно)</string>
+
+    <string name="reminder_disable_button">Отключить</string>
+    <string name="reminder_enable_button">Включить</string>
+    <string name="reminder_delete_button">Удалить</string>
+
+    <string name="reminder_deleted_message">Напоминание удалено</string>
+    <string name="reminder_added_message">Напоминание добавлено</string>
+
+    <string name="empty_reminders_message_title">Добавьте первое напоминание</string>
     <string name="empty_reminders_message_description">Ваш список напоминаний пока пуст. Добавьте новые задачи и события, чтобы быть всегда в курсе дел!</string>
 </resources>
